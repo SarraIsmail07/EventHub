@@ -53,13 +53,11 @@ img {
   display: block;
 }
 
-/* Conteneur commun aux pages */
 .container {
   width: min(1200px, 92%);
   margin: 0 auto;
 }
 
-/* Bouton principal */
 .btn-primary {
   display: inline-flex;
   align-items: center;

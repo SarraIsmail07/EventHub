@@ -1,0 +1,123 @@
+
+/* Carte générale */
+.carte {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.carte:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(30, 35, 64, 0.12);
+}
+
+/* Image */
+.carte-image {
+  position: relative;
+  height: 160px;
+}
+
+.carte-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Badge catégorie */
+app-badge-categorie {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* Favoris */
+.favori {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.favori:hover {
+  background: var(--primary);
+}
+
+/* Contenu */
+.carte-contenu {
+  padding: 15px;
+}
+
+.carte-contenu h3 {
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+
+.carte-contenu p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Partie inférieure */
+.carte-bas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* États des places */
+.etat {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.disponible {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.complet {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.termine-label {
+  color: #555;
+  background: #e5e7eb;
+}
+
+/* Bouton détails */
+.btn-details {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.btn-details:hover {
+  background: var(--primary-dark);
+}
+
+/* Événement terminé */
+.carte.termine {
+  opacity: 0.6;
+}

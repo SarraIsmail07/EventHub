@@ -1,0 +1,25 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.atelier {
+  background-color: #7041d9;
+}
+
+.conference {
+  background-color: #2563eb;
+}
+
+.competition {
+  background-color: #dc3545;
+}
+
+.sortie {
+  background-color: #16803c;
+}

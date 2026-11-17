@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { Categorie } from '../../modeles/evenement';
 
 @Component({
   imports: [],
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './badge-categorie.css',
   templateUrl: './badge-categorie.html',
 })
-export class BadgeCategorie {}
+
+export class BadgeCategorie {
+  categorie = input.required<Categorie>();
+}

@@ -1,1 +1,54 @@
-<p>carte-evenement works!</p>
+<article class="carte" [class.termine]="evenement().date < aujourdHui">
+  <div class="carte-image">
+    @if (evenement().image) {
+      <img [src]="evenement().image" [alt]="evenement().titre" />
+    }
+
+    <app-badge-categorie [categorie]="evenement().categorie" />
+
+    <button
+      type="button"
+      class="favori"
+      aria-label="Ajouter aux favoris"
+      (click)="ajoutFavori.emit(evenement().id)"
+    >
+      ♡
+    </button>
+  </div>
+
+  <div class="carte-contenu">
+    <h3>{{ evenement().titre }}</h3>
+
+    <p>Club : {{ evenement().club }}</p>
+
+    <p>
+      Date :
+      {{ evenement().date | date: 'dd/MM/yyyy HH:mm' }}
+    </p>
+
+    <p>Lieu : {{ evenement().lieu }}</p>
+
+    <p>
+      @if (evenement().gratuit) {
+        Gratuit
+      } @else {
+        Payant
+      }
+    </p>
+
+    <div class="carte-bas">
+      @if (evenement().date < aujourdHui) {
+        <span class="etat termine-label">Terminé</span>
+      } @else if (evenement().capacite - evenement().placesReservees === 0) {
+        <span class="etat complet">Complet</span>
+      } @else {
+        <span class="etat disponible">
+          {{ evenement().capacite - evenement().placesReservees }}
+          places disponibles
+        </span>
+      }
+
+      <a [routerLink]="['/evenements', evenement().id]" class="btn-details"> Voir les détails </a>
+    </div>
+  </div>
+</article>
