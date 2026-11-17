@@ -1,9 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Session } from '../../services/session';
+import { Reservations } from '../../services/reservations';
 
 @Component({
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   selector: 'app-en-tete',
-  styleUrl: './en-tete.css',
   templateUrl: './en-tete.html',
+  styleUrl: './en-tete.css'
 })
-export class EnTete {}
+
+export class EnTete {
+  readonly session = inject(Session);
+  private readonly reservationsService = inject(Reservations);
+  readonly nombreReservations = computed(() => {
+    const email = this.session.utilisateur()?.email;
+
+    if (!email) {
+      return 0;
+    }
+
+    return this.reservationsService.reservations().filter(r => r.email === email).length;
+  });
+
+  deconnecter(): void {
+    this.session.deconnecter();
+  }
+}

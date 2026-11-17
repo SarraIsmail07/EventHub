@@ -1,16 +1,31 @@
 <header class="header">
-  <div class="header-content">
+  <div class="container header-content">
     <a routerLink="/evenements" class="logo">
       <img src="/Logo-EventHub.png" alt="EventHub" class="logo-image" />
     </a>
 
     <nav class="navigation">
-      <a routerLink="/evenements" routerLinkActive="active"> Accueil </a>
-      <a routerLink="/mes-reservations" routerLinkActive="active"> Mes réservations </a>
+      <a routerLink="/evenements" routerLinkActive="active"> Événements </a>
+
+      @if (session.estConnecte()) {
+        <a routerLink="/mes-reservations" routerLinkActive="active"> Mes réservations ({{ nombreReservations() }}) </a>
+      }
+
+      @if (session.estOrganisateur()) {
+        <a routerLink="/organisateur/nouveau" routerLinkActive="active"> Nouvel événement </a>
+      }
     </nav>
 
     <div class="header-actions">
-      <a routerLink="/connexion" class="connexion"> Connexion </a>
+      @if (session.estConnecte()) {
+        <span class="nom-utilisateur">
+          {{ session.utilisateur()?.nom }}
+        </span>
+
+        <button type="button" class="connexion" (click)="deconnecter()">Déconnexion</button>
+      } @else {
+        <a routerLink="/connexion" class="connexion"> Connexion </a>
+      }
     </div>
   </div>
 </header>

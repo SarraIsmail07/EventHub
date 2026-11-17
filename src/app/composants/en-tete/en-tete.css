@@ -1,3 +1,17 @@
+.header {
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 30px;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -9,3 +23,79 @@
   height: auto;
   display: block;
 }
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navigation a {
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navigation a:hover {
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.navigation a.active {
+  color: var(--primary-dark);
+  background-color: var(--primary-light);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nom-utilisateur {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.connexion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.connexion:hover {
+  background-color: var(--primary-dark);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 0;
+    gap: 15px;
+  }
+  .navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo-image {
+    width: 150px;
+  }
+}
+
